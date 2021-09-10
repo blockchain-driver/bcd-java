@@ -1,0 +1,98 @@
+plugins {
+    id 'java'
+}
+
+group 'bcd.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    jcenter() // for just 2 io.github.novacrypto deps (SHA256, ToRuntime) required by BIP39:
+//            |    +--- com.github.NodleCode:BIP39:484f9d5d588
+//            |    |    +--- com.madgag.spongycastle:core:1.58.0.0
+//            |    |    +--- io.github.novacrypto:SHA256:2019.01.27 FAILED
+//            |    |    \--- io.github.novacrypto:ToRuntime:2019.01.27 FAILED
+
+    maven { url 'https://jitpack.io'
+//        content {
+//            includeGroup "com.github.NodleCode"
+//            includeGroup "com.onehilltech.promises"
+//            includeGroup "com.github.jitpack"
+//            includeGroup "com.github.emeraldpay"
+//            includeGroup "io.emeraldpay.polkaj"
+//        }
+    }
+//    // https://docs.gradle.org/current/userguide/declaring_repositories.html#sec:repository-content-filtering
+//    exclusiveContent {
+//        forRepository {
+//            maven {
+//                url "https://jitpack.io"
+//            }
+//        }
+//        filter {
+//            // this repository *only* contains artifacts with group "my.company"
+//            includeGroup "my.company"
+//        }
+//    }
+}
+
+dependencies {
+    // for development:
+    // tryout out own builds
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // https://mvnrepository.com/artifact/junit/junit
+    implementation group: 'junit', name: 'junit', version: '4.12'
+    //testImplementation group: 'junit', name: 'junit', version: '4.12'
+
+
+    // substrate
+    //implementation 'com.github.NodleCode:substrate-client-kotlin:1.0'
+    implementation 'com.github.blockchain-driver:substrate-client-kotlin:bcdbuild-SNAPSHOT'
+    // https://mvnrepository.com/artifact/io.reactivex.rxjava3/rxkotlin
+    implementation group: 'io.reactivex.rxjava3', name: 'rxkotlin', version: '3.0.1' // solves: class file for io.reactivex.rxjava3.core.Single not found
+
+
+    // lombok
+    implementation 'org.projectlombok:lombok:1.18.20'
+    // logging
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-logging
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-logging', version: '2.5.4'
+
+
+    implementation 'com.onehilltech.promises:promises-jvm:0.10.3' //OK
+    //implementation 'com.github.jitpack:gradle-simple:1.1'
+    implementation 'com.github.jitpack:gradle-simple:f129fbd'//OK
+
+
+
+    // https://jitpack.io/#emeraldpay/polkaj/-SNAPSHOT
+    //implementation 'com.github.emeraldpay:polkaj:-SNAPSHOT'
+    //implementation 'com.github.emeraldpay:polkaj-api-http:-SNAPSHOT'
+    //implementation 'com.github.emeraldpay:polkaj-api-http:0.4.0-SNAPSHOT'
+    //implementation 'com.github.emeraldpay:polkaj-api-http:705ece128e'
+
+    //implementation 'com.github.emeraldpay:polkaj-api-http:705ece1'
+   //implementation 'com.github.emeraldpay:polkaj-api-http:0.4.0-SNAPSHOT'
+    //implementation 'com.github.emeraldpay:polkaj-api-http:0.4.0-SNAPSHOT'
+    //implementation 'com.github.emeraldpay:polkaj-api-http:master-SNAPSHOT'
+    //implementation 'io.emeraldpay.polkaj:polkaj-api-http:master-SNAPSHOT'
+    //implementation 'io.emeraldpay.polkaj:polkaj-api-http:0.4.0-SNAPSHOT'
+    //implementation 'com.github.emeraldpay:polkaj:3.0'
+    //implementation 'com.github.emeraldpay:polkaj:master-SNAPSHOT'
+    //implementation 'com.github.emeraldpay:polkaj:0.4.0-SNAPSHOT'
+//    implementation "io.emeraldpay.polkaj:polkaj-api-http:$polkajVersion"
+//    implementation "io.emeraldpay.polkaj:polkaj-api-ws:$polkajVersion"
+//    implementation "io.emeraldpay.polkaj:polkaj-json-types:$polkajVersion"
+//    implementation "io.emeraldpay.polkaj:polkaj-scale-types:$polkajVersion"
+//    implementation "io.emeraldpay.polkaj:polkaj-tx:$polkajVersion"
+//    implementation "io.emeraldpay.polkaj:polkaj-schnorrkel:$polkajVersion"
+//    implementation 'commons-codec:commons-codec:1.14'
+//
+//
+//    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+//    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
