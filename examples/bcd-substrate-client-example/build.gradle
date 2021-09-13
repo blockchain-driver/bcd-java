@@ -1,0 +1,13 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    //implementation 'com.github.blockchain-driver.bcd-java:bcd-common:5f3c505a68'
+    implementation 'com.github.blockchain-driver.bcd-java:bcd-substrate-client:master-SNAPSHOT'
+}

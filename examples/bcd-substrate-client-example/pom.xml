@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>bcd.java.example</groupId>
+    <artifactId>bcd-substrate-client-maven-example</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <repositories>
+        <!-- maven always checks maven Central repository -->
+
+        <!-- if your (~/.m2/)settings.xml defines mirror for everything like <mirrorOf>*</mirrorOf>,
+        e.g. company internal Nexus repository server,
+        than you might need to contact Nexus admin on how these 2 additional repositories below
+        might be included into group or create separate mirror repository -->
+
+        <!-- jitpack-on-demand-builds -->
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+        <!-- jcenter() // for just 2 novacrypto deps required by BIP39 -->
+        <repository>
+            <id>jcenter</id>
+            <name>jcenter</name>
+            <url>https://jcenter.bintray.com</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.NodleCode</groupId>
+            <artifactId>substrate-client-kotlin</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.reactivex.rxjava3/rxkotlin -->
+        <dependency>
+            <groupId>io.reactivex.rxjava3</groupId>
+            <artifactId>rxkotlin</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.github.blockchain-driver.bcd-java</groupId>
+            <artifactId>bcd-substrate-client</artifactId>
+            <version>master-SNAPSHOT</version>
+        </dependency>
+
+    </dependencies>
+
+
+
+</project>
