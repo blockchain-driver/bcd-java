@@ -4,11 +4,8 @@ import io.nodle.substratesdk.SubstrateApiKt;
 import io.nodle.substratesdk.account.InvalidAccount;
 import io.nodle.substratesdk.rpc.SubstrateProvider;
 import io.nodle.substratesdk.account.Wallet;
-import io.nodle.substratesdk.types.AccountData;
 import io.nodle.substratesdk.types.AccountInfo;
-import io.nodle.substratesdk.types.RuntimeMetadata;
 //import io.reactivex.rxjava3.annotations.NonNull;
-import lombok.extern.slf4j.Slf4j;
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 
