@@ -1,0 +1,8 @@
+
+//group 'bcd.java'
+
+allprojects {
+    group 'bcd.java'
+    //artifact name is folder name by default
+    version '1.0-SNAPSHOT'
+}
