@@ -1,2 +1,9 @@
 rootProject.name = 'bcd-java'
 
+include 'bcd-common'
+include(
+    'bcd-polkadot-java',
+    'bcd-polkaj',
+    'bcd-substrate-client'
+)
+

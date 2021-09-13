@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+group 'bcd.polkadot.sustrate-client'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    // Warning: Builds will no longer be able to resolve artifacts from JCenter after February 1st, 2022
+    jcenter() // for just 2 io.github.novacrypto deps (SHA256, ToRuntime) required by BIP39:
+    //            |    +--- com.github.NodleCode:BIP39:484f9d5d588
+    //            |    |    +--- com.madgag.spongycastle:core:1.58.0.0
+    //            |    |    +--- io.github.novacrypto:SHA256:2019.01.27 FAILED
+    //            |    |    \--- io.github.novacrypto:ToRuntime:2019.01.27 FAILED
+
+    maven {
+        url 'https://jitpack.io'
+        // for implementation 'com.github.blockchain-driver:substrate-client-kotlin:bcdbuild-SNAPSHOT'
+
+    }
+}
+
+dependencies {
+    // utilities
+    implementation project(':bcd-common')
+
+    // polkadot/substrate
+    //implementation 'com.github.NodleCode:substrate-client-kotlin:1.0'
+    implementation 'com.github.blockchain-driver:substrate-client-kotlin:bcdbuild-SNAPSHOT'
+    // https://mvnrepository.com/artifact/io.reactivex.rxjava3/rxkotlin
+    implementation group: 'io.reactivex.rxjava3', name: 'rxkotlin', version: '3.0.1' // solves: class file for io.reactivex.rxjava3.core.Single not found
+}
