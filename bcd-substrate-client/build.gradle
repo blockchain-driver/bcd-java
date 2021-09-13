@@ -1,6 +1,13 @@
+//plugins {
+//    id 'java'
+//}
+
+/* for https://github.com/lessthanoptimal/gversion-plugin
 plugins {
-    id 'java'
+    id "com.peterabeles.gversion" version "1.10"
 }
+project.compileJava.dependsOn(createVersionFile)
+*/
 
 //group 'bcd.polkadot.sustrate-client'
 //version '1.0-SNAPSHOT'
@@ -23,7 +30,7 @@ repositories {
 
 dependencies {
     // utilities
-    implementation project(':bcd-common')
+    //implementation project(':bcd-common')
 
     // polkadot/substrate
     //implementation 'com.github.NodleCode:substrate-client-kotlin:1.0'

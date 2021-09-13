@@ -1,8 +1,42 @@
-
-//group 'bcd.java'
+//buildscript {
+//    repositories {
+//        google()
+//        mavenCentral()
+//        maven {
+//            url "https://plugins.gradle.org/m2/"
+//        }
+//    }
+//    dependencies {
+//        classpath "gradle.plugin.com.peterabeles.gversion:gversion-plugin:1.10"
+//    }
+//}
 
 allprojects {
     group 'bcd.java'
     //artifact name is folder name by default
     version '1.0-SNAPSHOT'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'java-library'
+    //apply plugin: 'maven'
+    apply plugin: 'maven-publish'
+//    plugins {
+//        id "com.peterabeles.gversion" version "1.10"
+//    }
+    //apply plugin: "com.peterabeles.gversion" //version "1.10"
+
+    targetCompatibility = '11'
+    sourceCompatibility = '11'
+
+    [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+    publishing { //used by 'maven-publish'
+        publications {
+            BCDJavaLibrary(MavenPublication) {
+                from components.java
+            }
+        }
+    }
 }

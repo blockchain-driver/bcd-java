@@ -1,4 +1,6 @@
 
+[![](https://jitpack.io/v/blockchain-driver/bcd-java.svg)](https://jitpack.io/#blockchain-driver/bcd-java)
+
 ### Build
 
 `./gradlew build`
